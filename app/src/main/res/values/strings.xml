@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BMI Calculator</string>
+    <string name="bmi_n_a">BMI : N/A</string>
+    <string name="invalid_input">Invalid input</string>
 </resources>

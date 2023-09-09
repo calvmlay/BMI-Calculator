@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,10 +44,22 @@ class MainActivity : AppCompatActivity() {
 
                 // Provide a comment based on BMI value
                 val comment = when {
-                    bmi < 18.5 -> "Underweight"
-                    bmi < 24.9 -> "Normal weight"
-                    bmi < 29.9 -> "Overweight"
-                    else -> "Obese"
+                    bmi < 18.5 -> {
+                        BMIMessage.setTextColor(ContextCompat.getColor(this, R.color.underweightColor))
+                        "Underweight"
+                    }
+                    bmi < 24.9 -> {
+                        BMIMessage.setTextColor(ContextCompat.getColor(this, R.color.normalWeightColor))
+                        "Normal weight"
+                    }
+                    bmi < 29.9 -> {
+                        BMIMessage.setTextColor(ContextCompat.getColor(this, R.color.overweightColor))
+                        "Overweight"
+                    }
+                    else -> {
+                        BMIMessage.setTextColor(ContextCompat.getColor(this, R.color.obeseColor))
+                        "Obese"
+                    }
                 }
                 BMIMessage.text = "$comment"
 
@@ -56,8 +69,9 @@ class MainActivity : AppCompatActivity() {
             } else {
 
                 // Handle invalid input
-                BMI.text = "BMI : N/A"
-                BMIMessage.text = "Invalid input"
+                BMIMessage.setTextColor(ContextCompat.getColor(this, R.color.invalidInputColor))
+                BMI.text = getString(R.string.bmi_n_a)
+                BMIMessage.text = getString(R.string.invalid_input)
                 resultCard.visibility = View.VISIBLE
                 resultText.visibility = View.VISIBLE
             }

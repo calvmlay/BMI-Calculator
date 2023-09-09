@@ -3,4 +3,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="main">#090E21</color>
+    <color name="underweightColor">#FF0000</color> <!-- Red -->
+    <color name="normalWeightColor">#00FF00</color> <!-- Green -->
+    <color name="overweightColor">#FFFF00</color> <!-- Yellow -->
+    <color name="obeseColor">#FFA500</color> <!-- Orange -->
+    <color name="invalidInputColor">#910202</color> <!-- Red -->
 </resources>
