@@ -2,9 +2,11 @@ package com.chuitec.bmicalculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,6 +15,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var button: Button
     private lateinit var BMI: TextView
     private lateinit var BMIMessage: TextView
+    private lateinit var resultCard: CardView
+    private lateinit var resultText: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,14 +27,19 @@ class MainActivity : AppCompatActivity() {
         button = findViewById<Button>(R.id.btnCalculate)
         BMI = findViewById<TextView>(R.id.tvBMI)
         BMIMessage = findViewById<TextView>(R.id.tvBMIMessage)
+        resultCard = findViewById<CardView>(R.id.resultCard)
+        resultText = findViewById<TextView>(R.id.tvResultHead)
 
         button.setOnClickListener {
             val userWeight = weight.text.toString().toDoubleOrNull()
-            val userHeight = height.text.toString().toDoubleOrNull()
+            val userHeightCm = height.text.toString().toDoubleOrNull()
 
-            if (userWeight != null && userHeight != null && userHeight > 0) {
-                val bmi = userWeight / (userHeight * userHeight)
-                BMI.text = "BMI Value: %.2f".format(bmi)
+            if (userWeight != null && userHeightCm != null && userHeightCm > 0) {
+                // Convert height from centimeters (cm) to meters (m)
+                val userHeightM = userHeightCm / 100.0
+
+                val bmi = userWeight / (userHeightM * userHeightM)
+                BMI.text = "BMI : %.2f".format(bmi)
 
                 // Provide a comment based on BMI value
                 val comment = when {
@@ -39,11 +48,18 @@ class MainActivity : AppCompatActivity() {
                     bmi < 29.9 -> "Overweight"
                     else -> "Obese"
                 }
-                BMIMessage.text = "Comment: $comment"
+                BMIMessage.text = "$comment"
+
+                resultCard.visibility = View.VISIBLE
+                resultText.visibility = View.VISIBLE
+
             } else {
+
                 // Handle invalid input
-                BMI.text = "BMI Value: N/A"
-                BMIMessage.text = "Comment: Invalid input"
+                BMI.text = "BMI : N/A"
+                BMIMessage.text = "Invalid input"
+                resultCard.visibility = View.VISIBLE
+                resultText.visibility = View.VISIBLE
             }
         }
 

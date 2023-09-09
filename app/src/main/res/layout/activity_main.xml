@@ -35,7 +35,8 @@
         app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.447" />
+        app:layout_constraintVertical_bias="0.447"
+        android:visibility="gone"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="185dp"
@@ -68,19 +69,34 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.089" />
 
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="64dp"
+                android:layout_height="51dp"
+                android:text="Cm"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.9"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.794" />
+
             <EditText
                 android:id="@+id/etHeight"
-                android:layout_width="158dp"
-                android:layout_height="71dp"
+                android:layout_width="108dp"
+                android:layout_height="73dp"
                 android:ems="10"
+                android:hint="00"
                 android:inputType="text"
-                android:text="00"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="50sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.592"
+                app:layout_constraintHorizontal_bias="0.205"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
@@ -119,19 +135,34 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.089" />
 
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="64dp"
+                android:layout_height="51dp"
+                android:text="Kg"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.9"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.794" />
+
             <EditText
                 android:id="@+id/etWeight"
-                android:layout_width="158dp"
-                android:layout_height="71dp"
+                android:layout_width="120dp"
+                android:layout_height="72dp"
                 android:ems="10"
+                android:hint="00"
                 android:inputType="text"
-                android:text="00"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="50sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.592"
+                app:layout_constraintHorizontal_bias="0.246"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
@@ -155,6 +186,7 @@
         app:layout_constraintVertical_bias="0.312" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/resultCard"
         android:layout_width="383dp"
         android:layout_height="145dp"
         app:cardBackgroundColor="#1D1E33"
@@ -163,7 +195,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.619" >
+        app:layout_constraintVertical_bias="0.619"
+        android:visibility="gone">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -174,7 +207,7 @@
                 android:id="@+id/tvBMI"
                 android:layout_width="325dp"
                 android:layout_height="57dp"
-                android:text="21.5"
+                android:text="BMI : 00.0"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="34sp"
@@ -189,7 +222,7 @@
                 android:id="@+id/tvBMIMessage"
                 android:layout_width="325dp"
                 android:layout_height="37dp"
-                android:text="You are Underweight"
+                android:text="You are %the comment%"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="26sp"
